@@ -130,7 +130,8 @@ namespace COSDLanSwitchService
                 eventLog1.WriteEntry(n.Name + " is " + n.OperationalStatus, EventLogEntryType.Information, 100);
 
                 //if the operational status of the network adapter is up, and the interface is ethernet, mark the switch flag to true
-                if (n.OperationalStatus.Equals(OperationalStatus.Up) && n.NetworkInterfaceType.Equals(NetworkInterfaceType.Ethernet) && !n.Description.Equals("Juniper Networks Virtual Adapter"))
+                if (n.OperationalStatus.Equals(OperationalStatus.Up) && n.NetworkInterfaceType.Equals(NetworkInterfaceType.Ethernet) 
+                    && !n.Description.Equals("Juniper Networks Virtual Adapter") && !n.Description.Equals("Hyper-V Virtual Ethernet Adapter")
                 {
                     willSwitch = true;
                 }
